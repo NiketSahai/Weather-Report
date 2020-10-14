@@ -1,6 +1,7 @@
 import csv
 from matplotlib import pyplot as plt
 from datetime import datetime
+import numpy as np
 
 filename = 'death_valley_2014.csv'
 filename1 = 'sitka_weather_2014.csv'
@@ -38,22 +39,23 @@ with open(filename1) as fp1:
             lows1.append(low1)
 
 
-fig = plt.figure(dpi=128,figsize=(10,6))
+fig = plt.figure(dpi=200,figsize=(10,8))
+
 #For Death Valley
-plt.plot(dates,highs,c='orange',alpha=1)
+plt.plot(dates,highs,c='red',alpha=1.0)
 plt.plot(dates,lows,c='green',alpha=0.5)
-plt.fill_between(dates,highs,lows,facecolor='white',alpha=0.5)
+plt.fill_between(dates,highs,lows,facecolor='white',alpha=1.5)
 
 #For Sitka
-plt.plot(dates1,highs1,c='red',alpha=1)
+plt.plot(dates1,highs1,c='pink',alpha=1.0)
 plt.plot(dates1,lows1,c='blue',alpha=0.5)
-plt.fill_between(dates1,highs1,lows1,facecolor='blue',alpha=0.1)
+plt.fill_between(dates1,highs1,lows1,facecolor='blue',alpha=0.8)
 
 plt.title("Daily high and low temperatures,2014\nDeath Valley(OrangeGreen) and Sitka(RedBlue)",fontsize=24)
-plt.xlabel('',fontsize=16)
+plt.xlabel('',fontsize=20)
 fig.autofmt_xdate()
-plt.ylabel("Temperature (F)",fontsize=16)
-plt.tick_params(axis='both',which='major',labelsize=16)
+plt.ylabel("Temperature (F)",fontsize=20)
+plt.tick_params(axis='both',which='major',labelsize=20)
 
 plt.show()
 
